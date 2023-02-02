@@ -1,0 +1,19 @@
+{
+	"name": "deep",
+	"scripts": {
+		"build": "esbuild --bundle src/main.ts --outfile=www/main.js",
+		"dev": "esbuild --bundle src/main.ts --outfile=www/main.js --servedir=www",
+		"zip": "npm run build && mkdir -p dist && zip -r dist/game.zip www -x \"**/.DS_Store\"",
+		"check": "tsc",
+		"run:desktop": "npm run build && neu run",
+		"build:desktop": "npm run build && neu build --release"
+	},
+	"dependencies": {
+		"kaboom": "^3000.0.0-beta.1"
+	},
+	"devDependencies": {
+		"@neutralinojs/neu": "^9.4.0",
+		"esbuild": "^0.17.5",
+		"typescript": "^4.9.5"
+	}
+}
